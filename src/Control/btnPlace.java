@@ -1,8 +1,8 @@
 package Control;
 
-import Model.Car;
 import Model.Place;
 import Model.State;
+import View.windowsToFree;
 import View.windowsToPark;
 
 import javax.swing.*;
@@ -27,24 +27,25 @@ public class btnPlace extends JButton {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (info.getState().equals(State.free)) {
-                    windowsToPark win = new windowsToPark(place,btn);
+                    windowsToPark win = new windowsToPark(btn);
+                    win.setLocationRelativeTo(null);
                     win.pack();
                     win.setVisible(true);
-//                    place.occupy(new Car("123","123"));
                 }
-                else if (info.getState().equals(State.occupy)) { info.free(); }
-                System.out.println(place.getState());
-                btn.refresh();
-                btn.repaint();
+                else if (info.getState().equals(State.occupy)) {
+                    windowsToFree win = new windowsToFree(btn);
+                    win.setLocationRelativeTo(null);
+                    win.pack();
+                    win.setVisible(true);
+                }
+
             }
         });
     }
 
 
-
-    public Place getInfo() {
-        return info;
-    }
+    /** get方法 */
+    public Place getInfo() { return info; }
 
 
     /**

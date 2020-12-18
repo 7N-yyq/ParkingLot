@@ -8,7 +8,7 @@ package Model;
  */
 public enum  State {
 
-    free, occupy, disable;
+    free, occupy, disable
 
 
 }

@@ -15,7 +15,7 @@ import static java.awt.GridBagConstraints.BOTH;
 public class windowsToPark extends JDialog {
 
 
-    public windowsToPark(Place place, btnPlace btn){
+    public windowsToPark(btnPlace btn){
         // 设置布局
         GridBagLayout layout = new GridBagLayout();
         setLayout(layout);
@@ -102,9 +102,9 @@ public class windowsToPark extends JDialog {
                     JOptionPane.showMessageDialog(null, "请完善信息", "警告", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    if (place.occupy(new Car(owner_textfield.getText(), phone_textfield.getText()))){
-                        System.out.println(place.getState());
+                    if (btn.getInfo().occupy(new Car(owner_textfield.getText(), phone_textfield.getText()))){
                         btn.refresh();
+                        dispose();
                     }
                     else JOptionPane.showMessageDialog(null, "添加出错", "警告", JOptionPane.ERROR_MESSAGE);
                 }

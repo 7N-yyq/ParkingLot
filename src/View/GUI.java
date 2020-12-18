@@ -69,12 +69,4 @@ public class GUI extends JFrame{
     }
 
 
-    public static void main(String[] argv){
-        GUI jf=new GUI(null, 4, 4);
-        jf.setSize(700, 500);
-        jf.setLocationRelativeTo(null);
-        jf.setDefaultCloseOperation(3);
-        jf.setVisible(true);
-    }
-
 }

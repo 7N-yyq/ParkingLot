@@ -1,6 +1,5 @@
 package Model;
 
-import javax.swing.plaf.metal.MetalBorders;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class ParkingLot {
 
     /**
      * 用车位信息初始化停车场
-     * @param places
+     * @param places 车位信息
      */
     public ParkingLot(List<Place> places){
         this.places.addAll(places);

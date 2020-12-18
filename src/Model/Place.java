@@ -22,25 +22,22 @@ public class Place {
     }
 
 
-    /**
-     * 得到这个车位的状态
-     * @return
-     */
+    /** get方法 **/
     public State getState() { return this.state; }
-
+    public Car getCar() { return car; }
 
     /**
      * 设置当前车为空闲
      * @return 如果occpuy->free，返回价钱
      *         如果disable->free， 返回0
      */
-    public float free(){
-        if (this.state == State.disable || this.state == State.free) return 0;
+    public boolean free(){
+        if (this.state == State.disable || this.state == State.free) return false;
         else {
             this.car = null;
             this.state = State.free;
             this.begin = null;
-            return charge(begin, new Date());
+            return true;
         }
     }
 
@@ -71,16 +68,14 @@ public class Place {
 
     /**
      * 计算停车收费
-     * @param begin 开始时间
-     * @param end 结束时间
      * @return 费用
      */
-    private float charge(Date begin, Date end){
+    public float charge(){
+        Date end = new Date();
         // 计算经过多长时间，/1000：ms->s  /60：s->min
-//        long time = (end.getTime() - begin.getTime()) / 1000 / 60;
-//        // 计算费用
-//        float res = 5*time;
-//        return res;
-        return 0;
+        long time = (end.getTime() - begin.getTime()) / 1000 / 60;
+        // 计算费用
+        float res = 5*time;
+        return res;
     }
 }
