@@ -1,9 +1,7 @@
 package View;
 
-import Control.btnPlace;
+import DB.DataBase;
 import Model.Car;
-import Model.ParkingLot;
-import Model.Place;
 
 import javax.swing.*;
 import java.awt.*;
@@ -102,7 +100,7 @@ public class windowsToPark extends JDialog {
                     JOptionPane.showMessageDialog(null, "请完善信息", "警告", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    if (btn.getInfo().occupy(new Car(owner_textfield.getText(), phone_textfield.getText()))){
+                    if (btn.getInfo().occupy(new Car(owner_textfield.getText()+":"+phone_textfield.getText()), new DataBase())){
                         btn.refresh();
                         dispose();
                     }

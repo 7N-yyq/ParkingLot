@@ -1,17 +1,15 @@
+import DB.DataBase;
 import Model.ParkingLot;
-import View.GUI;
-
-import java.util.ArrayList;
-import java.util.List;
+import View.windowsToAll;
 
 public class main {
 
     public static void main(String[] argv){
 
-        GUI a = new GUI(new ParkingLot(16), 4,4);
+        windowsToAll a = new windowsToAll(new ParkingLot(15), 4,4);
         a.setLocation(300, 300);
         a.pack();
         a.setVisible(true);
     }
-    
+
 }

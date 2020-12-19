@@ -6,15 +6,14 @@ public class Car {
     private String phone;
 
 
-
     /**
      * 新建一个车的信息
-     * @param owner  车主名字（称呼）
-     * @param phone  联系方式
+     * @param info  车主称呼+联系方式，格式：name:phone
      */
-    public Car(String owner, String phone) {
-        this.owner = owner;
-        this.phone = phone;
+    public Car(String info) {
+        String[] temp = info.split(":");
+        this.owner = temp[0];
+        this.phone = temp[1];
     }
 
 
@@ -34,5 +33,13 @@ public class Car {
     public String getPhone() {
         return phone;
     }
+
+    /**
+     * 转化形式：name:phone
+     * @return 转化结果
+     */
+    public String toString(){ return owner+":"+phone; }
+
+
 
 }

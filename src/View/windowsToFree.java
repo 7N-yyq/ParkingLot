@@ -1,6 +1,6 @@
 package View;
 
-import Control.btnPlace;
+import DB.DataBase;
 
 import javax.swing.*;
 import java.awt.*;
@@ -86,7 +86,7 @@ public class windowsToFree extends JFrame{
         btn_check.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                btn.getInfo().free();
+                btn.getInfo().free(new DataBase());
                 btn.refresh();
                 dispose();
             }
